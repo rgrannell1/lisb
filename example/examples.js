@@ -1,5 +1,5 @@
 
-lisbParse = require('../lib/lisb-parse').lisbParse
+lisbValidate = require('../lib/lisb-parse').lisbValidate
 
 const quote  = 'quote'
 const cond   = 'cond'
@@ -9,9 +9,9 @@ const begin  = 'begin'
 
 
 
-lisbParse([
+lisbValidate([
 	begin,
-	[let, ':x', 10],
-	[let, ':y', [
-		'*', ':x', ':x']]
+	[ let, ':double',
+		[λ, ':num' ['*', 2, ':num']] ],
+	[':double', 10]
 ])

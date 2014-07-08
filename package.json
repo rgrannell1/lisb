@@ -1,0 +1,16 @@
+{
+	"name":
+		"lisb",
+	"version":
+		"0.1.0",
+	"description":
+		"Lisb.",
+	"dependencies": {
+     	"is"   : "rgrannell1/is"
+	},
+	"repository": {
+		"type": "git",
+		"url" : "git://github.com/rgrannell1/lisb.git"
+	},
+	"main": "lisb.js"
+}

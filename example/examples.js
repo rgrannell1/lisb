@@ -1,17 +1,29 @@
 
-lisbValidate = require('../lib/lisb-parse').lisbValidate
+lisbEval = require('../lib/lisb-parse').lisbEval
 
-const quote  = 'quote'
-const cond   = 'cond'
 const let    = 'let'
+const cond   = 'cond'
 const λ      = 'λ'
 const begin  = 'begin'
 
 
-
-lisbValidate([
+/*
+trasform([
 	begin,
 	[ let, ':double',
 		[λ, ':num' ['*', 2, ':num']] ],
 	[':double', 10]
 ])
+*/
+
+const prog = [
+	begin,
+	[ cond, true, [
+		begin,
+		[let, ':x', 10],
+		[let, ':y', 10]],
+		['*', ':x', ':y']
+	]
+]
+
+lisbEval(prog)

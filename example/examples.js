@@ -6,16 +6,6 @@ const cond   = 'cond'
 const λ      = 'λ'
 const begin  = 'begin'
 
-
-/*
-trasform([
-	begin,
-	[ let, ':double',
-		[λ, ':num' ['*', 2, ':num']] ],
-	[':double', 10]
-])
-*/
-
 const prog = [
 	begin,
 	[ cond, true,

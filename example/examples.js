@@ -20,8 +20,8 @@ const prog = [
 
 const li = [
 	begin,
-	[let, ':a',
-		[':rest-of', ['list', 1, 2, 3]] ],
+	[ let, ':a',
+		[':fold', ':clog', 0, ['list', 1, 2, 3]] ],
 	[':a']
 ]
 

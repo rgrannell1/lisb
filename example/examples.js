@@ -21,7 +21,7 @@ const prog = [
 const li = [
 	begin,
 	[ let, ':a',
-		[':indices-of', ['list', 11, 12, 13]] ],
+		[':reverse', ['list', 11, 12, 13]] ],
 	[':a']
 ]
 

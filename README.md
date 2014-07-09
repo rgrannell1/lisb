@@ -5,6 +5,16 @@ LISB: Lost in a Sea of Brackets
 lisb is a toy language embedded within JavaScript. Lisb is unlike most languages that target JavaScript
 in that lisb code is made from ordinary JavaScript data-structures.
 
+```js
+lisbEval([
+	begin,
+	[let, ':coll0', [list, 1, 2, 3, 4, 5]],
+	[let, 'coll1',
+		[ ':take', 2, [':reverse', ':coll0']] ],
+	['coll1']
+])
+```
+
 ### Syntax
 
 Lisb has five special forms:
@@ -23,11 +33,20 @@ its seceond expression if bool if false, and throws an error otherwise.
 [cond bool expr0 expr1]
 ```
 
+list, as the name implies, constructs a list from an arbritrary number of arguments.
+
+```js
+['list', ...exprs]
+```
+
+λ creates a unary function that lexically-inherits variables bound in its creating scope.
+
 ```js
 [λ varname expr]
 ```
 
-Begin runs expressions sequentially. The value of the final expression is returned by the evaluted program.
+Begin runs expressions sequentially. The value of the final expression is returned by the
+evaluted program.
 
 ```js
 [begin ...exprs]

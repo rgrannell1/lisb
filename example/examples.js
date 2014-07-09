@@ -6,27 +6,14 @@ const cond   = 'cond'
 const λ      = 'λ'
 const begin  = 'begin'
 
-const prog = [
+const result = lisbEval([
 	begin,
-	[ cond, true,
-		[ begin,
-			[let, ':x', 10],
-			[let, ':y', 12],
-			['*', ':x', [
-				'+', ':y', ':y']] ],
-		[':I', 10]
-	]
-]
+	[let, ':coll0', [list, 1, 2, 3, 4, 5]],
+	[let, 'coll1',
+		[ ':take', 2, [':reverse', ':coll0']] ],
+	['coll1']
+])
 
-const li = [
-	begin,
-	[ let, ':a',
-		[':reverse', ['list', 11, 12, 13]] ],
-	[ let, ':b',
-		[':join', ':a', ['list', 1, 2, 3]] ],
-	[':b']
-]
 
-const result = lisbEval(prog)
-console.log(lisbEval(li))
+
 console.log(result)

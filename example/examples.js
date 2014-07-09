@@ -18,6 +18,13 @@ const prog = [
 	]
 ]
 
-const result = lisbEval(prog)
+const li = [
+	begin,
+	[let, ':a',
+		[':rest-of', ['list', 1, 2, 3]] ],
+	[':a']
+]
 
+const result = lisbEval(prog)
+console.log(lisbEval(li))
 console.log(result)

@@ -7,7 +7,7 @@ in that it isn't a transpiled; a lisb program parses as JavaScript.
 
 ### Syntax
 
-Lisb only has four special forms:
+Lisb has five special forms:
 
 let assigns a value to the global scope within a lisb program. Lisb values are
 immutable.
@@ -33,4 +33,4 @@ Begin runs expressions sequentially. The value of the final expression is return
 [begin ...exprs]
 ```
 
-### Standard Library
+1### Standard Library

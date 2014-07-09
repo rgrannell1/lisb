@@ -26,4 +26,6 @@ const prog = [
 			'+', ':y', ':y']] ]]
 ]
 
-lisbEval(prog)
+const result = lisbEval(prog)
+
+console.log(result)

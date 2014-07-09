@@ -22,7 +22,9 @@ const li = [
 	begin,
 	[ let, ':a',
 		[':reverse', ['list', 11, 12, 13]] ],
-	[':a']
+	[ let, ':b',
+		[':join', ':a', ['list', 1, 2, 3]] ],
+	[':b']
 ]
 
 const result = lisbEval(prog)

@@ -21,9 +21,9 @@ const prog = [
 	[ cond, true, [
 		begin,
 		[let, ':x', 10],
-		[let, ':y', 10],
-		['*', ':x', ':y']]
-	]
+		[let, ':y', 12],
+		['*', ':x', [
+			'+', ':y', ':y']] ]]
 ]
 
 lisbEval(prog)

@@ -18,12 +18,14 @@ trasform([
 
 const prog = [
 	begin,
-	[ cond, true, [
-		begin,
-		[let, ':x', 10],
-		[let, ':y', 12],
-		['*', ':x', [
-			'+', ':y', ':y']] ]]
+	[ cond, true,
+		[ begin,
+			[let, ':x', 10],
+			[let, ':y', 12],
+			['*', ':x', [
+				'+', ':y', ':y']] ],
+		[':I', 10]
+	]
 ]
 
 const result = lisbEval(prog)

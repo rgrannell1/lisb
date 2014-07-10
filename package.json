@@ -4,9 +4,9 @@
 	"version":
 		"0.1.0",
 	"description":
-		"Lisb.",
+		"An embedded expression language.",
 	"dependencies": {
-     	"is"   : "rgrannell1/is"
+     	"is": "rgrannell1/is"
 	},
 	"repository": {
 		"type": "git",

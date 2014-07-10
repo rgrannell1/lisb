@@ -22,7 +22,6 @@ const result = lisbEval([
 	[':double', 10]
 ])
 
-
 console.log(
 	lisbEval([
 		begin,

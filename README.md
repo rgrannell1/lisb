@@ -20,6 +20,16 @@ lisbEval([
 		]] ],
 	[':double', 10]
 ])
+
+lisbEval([
+	begin,
+
+	[let, ':inc', [
+		λ, ':x', ['+', ':x', 1] ]],
+
+	[':map', ':inc', ['list', 1, 2, 3, 4]]
+
+])
 ```
 
 Clunkly syntax aside, the language is reasonably powerful; it has arrays, numbers, booleans,

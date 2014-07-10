@@ -13,7 +13,7 @@ const result = lisbEval([
 	[let, ':coll1',
 		[ ':take', 2, [':reverse', ':coll0']] ],
 	[let, ':double',
-		['λ', ':x', [
+		[λ, ':x', [
 			[begin,
 				[':clog', ':x'],
 				['+', ':x', ':x']
@@ -23,5 +23,19 @@ const result = lisbEval([
 ])
 
 
+console.log(
+	lisbEval([
+		begin,
 
-console.log(result)
+		[let, ':inc', [
+			λ, ':x', ['+', ':x', 1] ]],
+
+		[':map', ':inc', ['list', 1, 2, 3, 4]]
+
+
+
+
+
+
+	])
+)

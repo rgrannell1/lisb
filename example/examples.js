@@ -12,13 +12,14 @@ const result = lisbEval([
 	[let, ':coll0', [list, 1, 2, 3, 4, 5]],
 	[let, ':coll1',
 		[ ':take', 2, [':reverse', ':coll0']] ],
-	[let, ':coll2',
+	[let, ':double',
 		['λ', ':x', [
 			[begin,
-				[':clog', ':x']
+				[':clog', ':x'],
+				['+', ':x', ':x']
 			]
 		]] ],
-	[':coll1']
+	[':double', 10]
 ])
 
 

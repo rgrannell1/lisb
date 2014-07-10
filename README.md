@@ -2,8 +2,20 @@
 LISB: Lost in a Sea of Brackets
 ===============================
 
-lisb is a toy language embedded within JavaScript. Lisb is unlike most languages that target JavaScript
-in that lisb code is made from ordinary JavaScript data-structures.
+lisb is a language embedded within JavaScript. Lisb is unlike most languages that target JS
+in that lisb code is made from ordinary JS data-structures. Lisb isn't intended to be a serious
+contender for Transpile JS Language of The Year, but it will hopefully develop into an interesting
+toy language.
+
+Lisb programs are built from JS literals like arrays, strings, numbers and functions, which are
+then evaluated by Lisb's custom evaluator [1]. Most transpiled languages must transform non-JS
+source file to Javascript before running; lisb is Javascript all the way down. One nice side-effect of
+Lisb-programs being first-class citizens of Javascript is that Javascript can be used to dynamically
+write Lisb, adding metaprogramming without the unconstrained horrors of `eval`.
+
+## Features
+
+
 
 ```js
 lisbEval([
@@ -185,3 +197,5 @@ evaluted program.
 ':zip'
 ```
 
+
+[1] Which, ironically, never resorts to using `eval`.

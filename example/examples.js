@@ -10,9 +10,9 @@ const list   = 'list'
 const result = lisbEval([
 	begin,
 	[let, ':coll0', [list, 1, 2, 3, 4, 5]],
-	[let, 'coll1',
+	[let, ':coll1',
 		[ ':take', 2, [':reverse', ':coll0']] ],
-	['coll1']
+	[':coll1']
 ])
 
 

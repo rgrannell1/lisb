@@ -5,6 +5,7 @@ const let    = 'let'
 const cond   = 'cond'
 const λ      = 'λ'
 const begin  = 'begin'
+const list   = 'list'
 
 const result = lisbEval([
 	begin,

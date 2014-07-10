@@ -1,5 +1,5 @@
 
-lisbEval = require('../lib/lisb-parse').lisbEval
+lisbEval = require('../lib/lisb-eval').lisbEval
 
 const let    = 'let'
 const cond   = 'cond'

@@ -6,7 +6,8 @@
 	"description":
 		"An embedded expression language.",
 	"dependencies": {
-     	"is": "rgrannell1/is"
+     	"is":     "rgrannell1/is",
+     	"jCheck": "rgrannell1/jCheck"
 	},
 	"repository": {
 		"type": "git",

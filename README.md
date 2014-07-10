@@ -9,9 +9,16 @@ in that lisb code is made from ordinary JavaScript data-structures.
 lisbEval([
 	begin,
 	[let, ':coll0', [list, 1, 2, 3, 4, 5]],
-	[let, 'coll1',
+	[let, ':coll1',
 		[ ':take', 2, [':reverse', ':coll0']] ],
-	['coll1']
+	[let, ':double',
+		['λ', ':x', [
+			[begin,
+				[':clog', ':x'],
+				['+', ':x', ':x']
+			]
+		]] ],
+	[':double', 10]
 ])
 ```
 

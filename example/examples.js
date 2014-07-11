@@ -7,6 +7,7 @@ const λ      = 'λ'
 const begin  = 'begin'
 const list   = 'list'
 
+/*
 const result = lisbEval([
 	begin,
 	[let, ':coll0', [list, 1, 2, 3, 4, 5]],
@@ -34,4 +35,24 @@ console.log(
 
 
 	])
+)
+*/
+
+/*
+console.log(
+	lisbEval(
+	['@', 3, ['list',
+		['list', 2, 1],
+		['list', 3, 2],
+		['list', 2, 4]
+	]]
+))
+*/
+
+console.log(
+	lisbEval(
+
+		[':is', ['list', 10], ['list', 10]]
+
+	)
 )

@@ -181,6 +181,9 @@ over_('val')
 	isLisbPrimitive,
 	function (val) {
 		return E([':truth', L(val)])
+	},
+	function (val) {
+		return !E([':falsity', L(val)])
 	}
 )
 

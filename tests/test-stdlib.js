@@ -66,6 +66,13 @@ const L = function (val) {
 
 
 
+
+
+
+
+
+
+
 // :is
 
 over_('val')
@@ -133,8 +140,23 @@ over_('coll')
 		return E(
 			[':is',
 				[ ':unique-of', L(coll) ],
-				[list]]
-		)
+				[list]] )
+	}
+)
+
+.run()
+
+// :is-subset
+
+over_('coll')
+
+.describe("a set is a subset of itself")
+.holdsWhen_(
+	function (coll) {
+		return isLisbPrimitive(coll) && is.array(coll)
+	},
+	function (coll) {
+		return E([':is-subset', L(coll), L(coll)])
 	}
 )
 

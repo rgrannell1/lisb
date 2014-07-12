@@ -233,10 +233,13 @@ over_('val')
 .describe('is nan tests nan')
 .holdsWhen_(
 	function (val) {
-		return isNaN(val)
+		return val !== val
 	},
 	function (val) {
-		return E([':nan?', val])
+		return E([':nan?', L(val)])
+	},
+	function (val) {
+		return !E([':not-nan?', L(val)])
 	}
 )
 

@@ -65,8 +65,6 @@ const L = function (val) {
 
 
 
-
-
 // :is?
 
 over_('val')
@@ -231,3 +229,15 @@ over_('coll')
 // :nan?
 
 over_('val')
+
+.describe('is nan tests nan')
+.holdsWhen_(
+	function (val) {
+		return isNaN(val)
+	},
+	function (val) {
+		return E([':nan?', val])
+	}
+)
+
+.run()

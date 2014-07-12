@@ -189,6 +189,27 @@ over_('val')
 
 .run()
 
+// :identity
+//
+//
+
+over_('val')
+
+.describe("identity returns its functions")
+.holdsWhen_(
+	isLisbPrimitive,
+	function (val) {
+		return E([':truth', L(val)])
+	},
+	function (val) {
+		return E([':is?',
+			[':identity', L(val)], L(val)
+		])
+	}
+)
+
+.run()
+
 // :at
 
 over_('coll')
@@ -200,11 +221,13 @@ over_('coll')
 	},
 	function (coll) {
 		return E([
-			':is?',
-			[':at', 0, L(coll)],
-			[':first-of', L(coll)]
+			':is?', [':at', 0, L(coll)], [':first-of', L(coll)]
 		])
 	}
 )
 
 .run()
+
+// :nan?
+
+over_('val')

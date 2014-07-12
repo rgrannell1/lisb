@@ -13,5 +13,9 @@
 		"type": "git",
 		"url" : "git://github.com/rgrannell1/lisb.git"
 	},
+	"scripts": {
+		"test":
+			"node tests/test-all.js"
+	},
 	"main": "lisb.js"
 }

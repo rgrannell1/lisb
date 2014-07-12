@@ -52,28 +52,20 @@ const isLisbPrimitive = function (val) {
 
 */
 
-const listify = function (val) {
+const L = function (val) {
 	if (is.array(val)) {
-		return ['list'].concat(val.map(listify))
+		return ['list'].concat(val.map(L))
 	} else {
 		return val
 	}
 }
 
-const is_ = function (val0, val1) {
-	return E( ['is', listify(val0), listify(val1)] )
-}
 
 
 
 
 
-
-/*
-	:is
-
-	test that two values are equal.
-*/
+// :is
 
 over_('val')
 
@@ -81,9 +73,19 @@ over_('val')
 .holdsWhen_(
 	isLisbPrimitive,
 	function (val) {
-		return E([':is', listify(val), listify(val)])
+		return E([':is', L(val), L(val)])
 	}
 )
 
 .run()
 
+// :is-in
+
+over_('val', 'coll')
+
+.describe("")
+.holdsWhen_(
+
+)
+
+.run()

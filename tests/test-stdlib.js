@@ -188,8 +188,6 @@ over_('val')
 .run()
 
 // :identity
-//
-//
 
 over_('val')
 
@@ -202,6 +200,22 @@ over_('val')
 	function (val) {
 		return E([':is?',
 			[':identity', L(val)], L(val)
+		])
+	}
+)
+
+// :capture
+
+over_('val0', 'val1')
+
+.describe("capture catches the correct value")
+.holdsWhen_(
+
+	function (val0, val1) {
+		return E([
+			':is?',
+			[':capture', L(val0), L(val1)],
+			L(val0)
 		])
 	}
 )
@@ -336,6 +350,26 @@ over_('coll')
 	},
 	function (coll) {
 		return !E( [':any-of', ':falsity', L(coll)] )
+	}
+)
+
+.run()
+
+// :map
+
+over_('coll')
+
+.describe('map identity works')
+.holdsWhen_(
+	function  (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return E([
+			':is?',
+			[':map', ':identity', L(coll)],
+			L(coll)
+		])
 	}
 )
 

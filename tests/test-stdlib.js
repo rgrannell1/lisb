@@ -3,13 +3,24 @@
 const is         = require('is')
 const jCheck     = require('jCheck')
 
+const over       = jCheck.over
+const over_      = jCheck.over_
 
+const describe   = jCheck.describe
 
+const holdsWhen  = jCheck.holdsWhen
+const holdsWhen_ = jCheck.holdsWhen_
 
+const failsWhen  = jCheck.failsWhen
+const failsWhen_ = jCheck.failsWhen_
 
+const worksWhen  = jCheck.worksWhen
+const worksWhen_ = jCheck.worksWhen_
 
-const stdlib   = require('../lib/lisb-stdlib')
-const E        = require('../lib/lisb-eval').E
+const run        = jCheck.run
+
+const stdlib     = require('../lib/lisb-stdlib')
+const E          = require('../lib/lisb-eval').lisbEval
 
 const let    = 'let'
 const cond   = 'cond'

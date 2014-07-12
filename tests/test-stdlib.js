@@ -61,10 +61,6 @@ const L = function (val) {
 }
 
 
-
-
-
-
 // :is
 
 over_('val')
@@ -74,6 +70,9 @@ over_('val')
 	isLisbPrimitive,
 	function (val) {
 		return E([':is', L(val), L(val)])
+	},
+	function (val) {
+		return !E([':not', L(val), L(val)])
 	}
 )
 
@@ -83,9 +82,20 @@ over_('val')
 
 over_('val', 'coll')
 
-.describe("")
+.describe("test that :is-in works for non-empty lists")
 .holdsWhen_(
-
+	function (val, coll) {
+		return isLisbPrimitive(val) && isLisbPrimitive(coll) &&
+			is.array(coll) && coll.length === 1
+	},
+	function (val, coll) {
+		var coll = L( coll.concat([val]) )
+		return E([':is-in', L(val), coll])
+	},
+	function (val, coll) {
+		var coll = L( coll.concat([val]) )
+		return !E([':not-in', L(val), coll])
+	}
 )
 
 .run()

@@ -67,8 +67,6 @@ const L = function (val) {
 
 
 
-
-
 // :is?
 
 over_('val')
@@ -186,6 +184,26 @@ over_('val')
 	},
 	function (val) {
 		return !E([':falsity', L(val)])
+	}
+)
+
+.run()
+
+// :at
+
+over_('coll')
+
+.describe('positional selectors work')
+.holdsWhen_(
+	function (coll) {
+		return isLisbPrimitive(coll) && is.array(coll) && coll.length > 0
+	},
+	function (coll) {
+		return E([
+			':is?',
+			[':at', 0, L(coll)],
+			[':first-of', L(coll)]
+		])
 	}
 )
 

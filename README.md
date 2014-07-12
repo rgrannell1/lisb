@@ -1,8 +1,8 @@
 
-LISB: Lost in a Sea of Brackets [![Build Status](https://travis-ci.org/rgrannell1/lisb.png?branch=master)](https://travis-ci.org/rgrannell1/lisb)
+LISB [![Build Status](https://travis-ci.org/rgrannell1/lisb.png?branch=master)](https://travis-ci.org/rgrannell1/lisb)
 ===============================
 
-lisb is a language embedded within JavaScript. Lisb is unlike most languages that target JS
+Lisb (Lost in a Sea of Brackets) is a language embedded within JavaScript. Lisb is unlike most languages that target JS
 in that lisb code is made from ordinary JS data-structures. Lisb isn't meant to be a
 contender for Transpiled JS Language of The Year, but it will hopefully develop into an interesting
 toy language.

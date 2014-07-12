@@ -69,44 +69,57 @@ const L = function (val) {
 
 
 
-
-
-// :is
+// :is?
 
 over_('val')
 
-.describe("test that :is checks equality.")
+.describe("test that :is? checks equality.")
 .holdsWhen_(
 	isLisbPrimitive,
 	function (val) {
-		return E([':is', L(val), L(val)])
+		return E([':is?', L(val), L(val)])
 	},
 	function (val) {
-		return !E([':not', L(val), L(val)])
+		return !E([':not?', L(val), L(val)])
 	}
 )
 
 .run()
 
-// :is-in
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// c
 
 over_('val', 'coll')
 
-.describe("test that :is-in works for empty lists")
+.describe("test that :in? works for empty lists")
 .holdsWhen_(
 	function (val, coll) {
 		return isLisbPrimitive(val) && isLisbPrimitive(coll) &&
 			is.array(coll) && coll.length === 0
 	},
 	function (val, coll) {
-		return !E([':is-in', L(val), L(coll)])
+		return !E([':in?', L(val), L(coll)])
 	},
 	function (val, coll) {
-		return E([':not-in', L(val), L(coll)])
+		return E([':not-in?', L(val), L(coll)])
 	}
 )
 
-.describe("test that :is-in works for non-empty lists")
+.describe("test that :in? works for non-empty lists")
 .holdsWhen_(
 	function (val, coll) {
 		return isLisbPrimitive(val) && isLisbPrimitive(coll) &&
@@ -114,11 +127,11 @@ over_('val', 'coll')
 	},
 	function (val, coll) {
 		var coll = L( coll.concat([val]) )
-		return E([':is-in', L(val), coll])
+		return E([':in?', L(val), coll])
 	},
 	function (val, coll) {
 		var coll = L( coll.concat([val]) )
-		return !E([':not-in', L(val), coll])
+		return !E([':not-in?', L(val), coll])
 	}
 )
 
@@ -136,7 +149,7 @@ over_('coll')
 	},
 	function (coll) {
 		return E(
-			[':is',
+			[':is?',
 				[ ':unique-of', L(coll) ],
 				[list]] )
 	}
@@ -144,7 +157,7 @@ over_('coll')
 
 .run()
 
-// :is-subset
+// :subset?
 
 over_('coll')
 
@@ -154,7 +167,20 @@ over_('coll')
 		return isLisbPrimitive(coll) && is.array(coll)
 	},
 	function (coll) {
-		return E([':is-subset', L(coll), L(coll)])
+		return E([':subset?', L(coll), L(coll)])
+	}
+)
+
+.run()
+
+
+over_('val')
+
+.describe("truth always returns true")
+.holdsWhen_(
+	isLisbPrimitive,
+	function (val) {
+		return E([':truth', L(val)])
 	}
 )
 

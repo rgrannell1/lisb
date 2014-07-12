@@ -22,6 +22,8 @@ const run        = jCheck.run
 const stdlib     = require('../lib/lisb-stdlib')
 const E          = require('../lib/lisb-eval').lisbEval
 
+const message    = console.log
+
 const let    = 'let'
 const cond   = 'cond'
 const λ      = 'λ'
@@ -44,7 +46,7 @@ const isLisbPrimitive = function (val) {
 
 
 
-
+//    :is
 
 over_('val')
 
@@ -57,3 +59,4 @@ over_('val')
 )
 
 .run()
+

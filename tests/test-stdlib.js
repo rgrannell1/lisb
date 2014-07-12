@@ -118,3 +118,24 @@ over_('val', 'coll')
 )
 
 .run()
+
+// :unique-of
+
+over_('coll')
+
+.describe("unique-of works for empty lists")
+.holdsWhen_(
+	function (coll) {
+		return isLisbPrimitive(coll) && is.array(coll) &&
+			coll.length === 0
+	},
+	function (coll) {
+		return E(
+			[':is',
+				[ ':unique-of', L(coll) ],
+				[list]]
+		)
+	}
+)
+
+.run()

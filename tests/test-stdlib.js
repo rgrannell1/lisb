@@ -174,6 +174,8 @@ over_('coll')
 .run()
 
 
+// :truth
+
 over_('val')
 
 .describe("truth always returns true")

@@ -313,12 +313,30 @@ over_('coll')
 	},
 	function (coll) {
 		return E( [':all-of', ':truth', L(coll)] )
+	},
+	function (coll) {
+		return !E( [':all-of', ':falsity', L(coll)] )
 	}
 )
-
 
 .run()
 
 
-
 // :any-of
+
+over_('coll')
+
+.describe("any-of works for empty and nonempty lists")
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll) && coll.length > 0
+	},
+	function (coll) {
+		return E( [':any-of', ':truth', L(coll)] )
+	},
+	function (coll) {
+		return !E( [':any-of', ':falsity', L(coll)] )
+	}
+)
+
+.run()

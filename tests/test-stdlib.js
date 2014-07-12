@@ -244,3 +244,60 @@ over_('val')
 )
 
 .run()
+
+// :true?
+
+over_('val')
+
+.describe('is true tests true')
+.holdsWhen_(
+	function (val) {
+		return val === true
+	},
+	function (val) {
+		return E([':true?', L(val)])
+	},
+	function (val) {
+		return !E([':not-true?', L(val)])
+	}
+)
+
+.run()
+
+// :false?
+
+over_('val')
+
+.describe('is false tests false')
+.holdsWhen_(
+	function (val) {
+		return val === false
+	},
+	function (val) {
+		return E([':false?', L(val)])
+	},
+	function (val) {
+		return !E([':not-false?', L(val)])
+	}
+)
+
+.run()
+
+// :empty?
+
+over_('val')
+
+.describe('is empty tests empty')
+.holdsWhen_(
+	function (val) {
+		return is.array(val) && val.length == 0
+	},
+	function (val) {
+		return E([':empty?', L(val)])
+	},
+	function (val) {
+		return !E([':not-empty?', L(val)])
+	}
+)
+
+.run()

@@ -39,7 +39,21 @@ const isLisbPrimitive = function (val) {
 		is.boolean(val)
 }
 
+/*
+	arrays are represented differently by Lisb
+	than by JavaScript; this smoothly abstracts
+	over the difference.
+	.
 
+*/
+
+const listify = function (val) {
+	if (is.array(val)) {
+		return ['list'].concat(val.map(listify))
+	} else {
+		return val
+	}
+}
 
 
 
@@ -54,7 +68,7 @@ over_('val')
 .holdsWhen_(
 	isLisbPrimitive,
 	function (val) {
-		return E([':is', val, val])
+		return E([':is', listify(val), listify(val)])
 	}
 )
 

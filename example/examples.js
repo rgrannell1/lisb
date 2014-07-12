@@ -48,11 +48,3 @@ console.log(
 	]]
 ))
 */
-
-console.log(
-	lisbEval(
-
-		[':is', ['list', 10], ['list', 10]]
-
-	)
-)

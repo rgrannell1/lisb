@@ -19,6 +19,11 @@ const worksWhen_ = jCheck.worksWhen_
 
 const run        = jCheck.run
 
+
+
+
+
+
 const stdlib     = require('../lib/lisb-stdlib')
 const E          = require('../lib/lisb-eval').lisbEval
 
@@ -55,16 +60,24 @@ const listify = function (val) {
 	}
 }
 
+const is_ = function (val0, val1) {
+	return E( ['is', listify(val0), listify(val1)] )
+}
 
 
 
 
 
-//    :is
+
+/*
+	:is
+
+	test that two values are equal.
+*/
 
 over_('val')
 
-.describe("test equality checking.")
+.describe("test that :is checks equality.")
 .holdsWhen_(
 	isLisbPrimitive,
 	function (val) {

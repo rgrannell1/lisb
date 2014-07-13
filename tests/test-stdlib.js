@@ -404,3 +404,33 @@ over_('coll')
 )
 
 .run()
+
+// :pick-of
+
+over_('coll')
+
+.describe('pick one returns an element of a collection')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll) && coll.length > 0
+	},
+	function (coll) {
+
+		return E([
+			':subset?',
+			[':pick-one', L(coll)],
+			[list, coll] ])
+	}
+)
+
+.describe('pick-one of empty list is error')
+.failsWhen_(
+	function (coll) {
+		return is.array(coll) && coll.length === 0
+	},
+	function (coll) {
+		return E( [':pick-one', L(coll)] )
+	}
+)
+
+.run()

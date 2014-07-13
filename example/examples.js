@@ -26,7 +26,8 @@ console.log( lEval([
 			]] ],
 
 
-	[':as-prefix', [list, 10, '+', 10]]
+	[ ':eval', [':as-prefix',
+		[list, 10, '+', 10]] ]
 
 
 ]) )

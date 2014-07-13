@@ -680,3 +680,23 @@ over_('coll')
 )
 
 .run()
+
+// :init-of
+
+over_('coll')
+
+.describe(':init-of is a subset of coll')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return ([
+			'subset?',
+			[':init-of', L(coll)], L(coll)
+		])
+
+	}
+)
+
+.run()

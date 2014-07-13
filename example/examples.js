@@ -16,7 +16,7 @@ console.log( lEval([
 	[let, ':as-prefix',
 		['mr', ':x',
 			[begin,
-				[let, [':e0', ':op', ':e1'], ':x'],
+				[let, [list, ':e0', ':op', ':e1'], ':x'],
 
 				[quasiquote,
 					[
@@ -26,7 +26,7 @@ console.log( lEval([
 			]] ],
 
 
-	[':as-prefix', [10, '+', 10]]
+	[':as-prefix', [list, 10, '+', 10]]
 
 
 ]) )

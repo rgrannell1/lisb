@@ -26,16 +26,18 @@ makes partial application easy.
 const prog0 =
 [
 	begin,
+
 	[let, ':coll0', [list, 1, 2, 3, 4, 5]],
+
 	[let, ':coll1',
 		[ ':take', 2, [':reverse', ':coll0']] ],
+
 	[let, ':double',
 		['fn', ':x', [
 			[begin,
 				[':clog', ':x'],
-				['+', ':x', ':x']
-			]
-		]] ],
+				['+', ':x', ':x']] ]] ],
+
 	[':double', 10]
 ]
 

@@ -95,7 +95,6 @@ over_('val')
 
 
 
-
 // c
 
 over_('val', 'coll')
@@ -354,6 +353,26 @@ over_('coll')
 
 .run()
 
+
+// :none-of
+
+over_('coll')
+
+.describe("none-of works for empty and nonempty lists")
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll) && coll.length > 0
+	},
+	function (coll) {
+		return !E( [':none-of', ':truth', L(coll)] )
+	},
+	function (coll) {
+		return E( [':none-of', ':falsity', L(coll)] )
+	}
+)
+
+.run()
+
 // :map
 
 over_('coll')
@@ -469,7 +488,7 @@ over_('coll')
 
 // :join
 
-over_('coll')
+over_('coll', 'val')
 
 .describe('concatenating with empty list is identity')
 .holdsWhen_(
@@ -488,24 +507,37 @@ over_('coll')
 .run()
 
 
-/*
-// :flat-map
+
+// :len-of
 
 over_('coll')
 
-.describe('flatmap identity is identity')
+.describe('len-of is length')
 .holdsWhen_(
 	function (coll) {
 		return is.array(coll)
 	},
 	function (coll) {
-		return E([
-			':is?'
-			[':flat-map', ':identity', L(coll)],
-			L(coll)
-		])
+		return E( [':len-of', L(coll)] ) === coll.length
 	}
 )
 
 .run()
-*/
+
+
+
+// :which
+
+over_('')
+
+.describe('')
+.holdsWhen_(
+	function () {
+
+	},
+	function () {
+
+	}
+)
+
+.run()

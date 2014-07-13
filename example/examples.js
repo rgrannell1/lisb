@@ -3,7 +3,7 @@ lisbEval = require('../lib/lisb-eval').lisbEval
 
 const let    = 'let'
 const cond   = 'cond'
-const λ      = 'λ'
+const fn      = 'fn'
 const begin  = 'begin'
 const list   = 'list'
 

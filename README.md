@@ -28,7 +28,7 @@ lisbEval([
 	[let, ':coll1',
 		[ ':take', 2, [':reverse', ':coll0']] ],
 	[let, ':double',
-		['λ', ':x', [
+		['fn', ':x', [
 			[begin,
 				[':clog', ':x'],
 				['+', ':x', ':x']
@@ -41,7 +41,7 @@ lisbEval([
 	begin,
 
 	[let, ':inc', [
-		λ, ':x', ['+', ':x', 1] ]],
+		fn, ':x', ['+', ':x', 1] ]],
 
 	[':map', ':inc', ['list', 1, 2, 3, 4]]
 
@@ -81,10 +81,10 @@ list, as the name implies, constructs a list from an arbritrary number of argume
 ['list', ...exprs]
 ```
 
-λ creates a unary function that lexically-inherits variables bound in its creating scope.
+fn creates a unary function that lexically-inherits variables bound in its creating scope.
 
 ```js
-[λ varname expr]
+[fn varname expr]
 ```
 
 Begin runs expressions sequentially. The value of the final expression is returned by the

@@ -22,7 +22,8 @@ makes partial application easy.
 
 
 ```js
-lisbEval([
+const prog0 =
+[
 	begin,
 	[let, ':coll0', [list, 1, 2, 3, 4, 5]],
 	[let, ':coll1',
@@ -35,9 +36,10 @@ lisbEval([
 			]
 		]] ],
 	[':double', 10]
-])
+]
 
-lisbEval([
+const prog1 =
+[
 	begin,
 
 	[let, ':inc', [
@@ -45,7 +47,26 @@ lisbEval([
 
 	[':map', ':inc', ['list', 1, 2, 3, 4]]
 
-])
+]
+
+const prog2 =
+[
+	begin,
+
+	[let,
+		[list, ':x', ':y', ':z'],
+		[list, 1,    2,    3]],
+
+	[':map',
+		[fn,
+			':x', ['*', ':x', ':x']],
+		[list, ':x', ':y', ':z'] ]
+
+]
+
+lisbEval(prog0)
+lisbEval(prog1)
+lisbEval(prog2)
 ```
 
 Clunkly syntax aside, the language is reasonably powerful; it has arrays, numbers, booleans,

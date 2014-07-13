@@ -528,15 +528,30 @@ over_('coll')
 
 // :which
 
-over_('')
+over_('coll')
 
-.describe('')
+.describe('which of trues is equal length')
 .holdsWhen_(
-	function () {
-
+	function (coll) {
+		return is.array(coll)
 	},
-	function () {
+	function (coll) {
 
+		const indices = unlist( E([
+			':where',
+			[':map', ':truth', L(coll)]
+		]) )
+
+		return indices.length === coll.length
+	},
+	function (coll) {
+
+		const indices = unlist( E([
+			':where',
+			[':map', ':falsity', L(coll)]
+		]) )
+
+		return indices.length === 0
 	}
 )
 

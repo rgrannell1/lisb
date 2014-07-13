@@ -85,8 +85,6 @@ over_('val')
 
 
 
-
-
 // c
 
 over_('val', 'coll')
@@ -600,6 +598,24 @@ over_('coll')
 			[':reverse', L(coll)],
 			L(coll.reverse())
 		])
+	}
+)
+
+.run()
+
+// :unzip-indices
+
+over_('coll')
+
+.describe('unzipping indices works')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll) && coll.length > 0
+	},
+	function (coll) {
+		const zipped = E([':unzip-indices', L(coll)])
+
+		return unlist(zipped)[0][1] === 0
 	}
 )
 

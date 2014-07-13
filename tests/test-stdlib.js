@@ -417,9 +417,9 @@ over_('coll')
 	function (coll) {
 
 		return E([
-			':subset?',
+			':in?',
 			[':pick-one', L(coll)],
-			[list, coll] ])
+			L(coll) ])
 	}
 )
 
@@ -430,6 +430,39 @@ over_('coll')
 	},
 	function (coll) {
 		return E( [':pick-one', L(coll)] )
+	}
+)
+
+.run()
+
+// :runif
+
+over_('val')
+
+.describe('math random returns 0...1')
+.holdsWhen_(
+	function (val) {
+		return true
+	},
+	function (val) {
+		const num = E([':runif', L(val)])
+		return num >= 0 && num <= 1
+	}
+)
+
+.run()
+
+/// :poll
+
+over_('coll')
+
+.describe('poll with truth count length')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return E([':poll', ':truth', L(coll)]) === coll.length
 	}
 )
 

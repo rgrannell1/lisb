@@ -96,7 +96,6 @@ over_('val')
 
 
 
-
 // c
 
 over_('val', 'coll')
@@ -468,6 +467,28 @@ over_('coll')
 
 .run()
 
+// :join
+
+over_('coll')
+
+.describe('concatenating with empty list is identity')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return E([
+			':is?',
+			[ ':join', L(coll), L([]) ],
+			L(coll)
+		])
+	}
+)
+
+.run()
+
+
+/*
 // :flat-map
 
 over_('coll')
@@ -487,3 +508,4 @@ over_('coll')
 )
 
 .run()
+*/

@@ -1,25 +1,30 @@
 
-lisbEval = require('../lib/lisb-eval').lisbEval
+lEval = require('../lib/lisb-eval').lEval
 
-const let    = 'let'
-const cond   = 'cond'
+const let     = 'let'
+const cond    = 'cond'
 const fn      = 'fn'
-const begin  = 'begin'
-const list   = 'list'
+const begin   = 'begin'
+const list    = 'list'
+const quote   = 'quote'
+const unquote = 'unquote'
 
 
-
-
-console.log( lisbEval([
+console.log( lEval([
 	begin,
 
 	[let,
-		[list, ':x', ':y', ':z'],
-		[list, 1,    2,    3]],
+		':code', [
+		quote,
+			[
+				begin,
+				[let, ':x', 0],
+				[let, ':y', 1]
+				[unquote, ]
 
-	[':map',
-		[fn,
-			':x', ['*', ':x', ':x']],
-		[list, ':x', ':y', ':z'] ]
+			]] ],
+
+	[':code']
 
 ]) )
+

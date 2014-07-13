@@ -64,9 +64,9 @@ const prog2 =
 
 ]
 
-lisbEval(prog0)
-lisbEval(prog1)
-lisbEval(prog2)
+lEval(prog0)
+lEval(prog1)
+lEval(prog2)
 ```
 
 Clunkly syntax aside, the language is reasonably powerful; it has arrays, numbers, booleans,

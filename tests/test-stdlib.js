@@ -25,7 +25,7 @@ const run        = jCheck.run
 
 
 const stdlib     = require('../lib/lisb-stdlib')
-const E          = require('../lib/lisb-eval').lisbEval
+const E          = require('../lib/lisb-eval').lEval
 
 const message    = console.log
 

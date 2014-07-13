@@ -374,3 +374,33 @@ over_('coll')
 )
 
 .run()
+
+// :shuffle
+
+over_('coll')
+
+.describe('shuffle preserves length')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return E( [':shuffle', L(coll)] ).length === L(coll).length
+	}
+)
+
+.describe('shuffle returns a subset')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return E( [
+			':subset?',
+			[':shuffle', L(coll)],
+			L(coll)
+		] )
+	}
+)
+
+.run()

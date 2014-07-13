@@ -620,3 +620,24 @@ over_('coll')
 )
 
 .run()
+
+// :locate
+
+over_('coll')
+
+.describe(':locate')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return unlist(
+			E( [':locate', ':truth', L(coll)] )).length === coll.length
+	},
+	function (coll) {
+		return unlist(
+			E( [':locate', ':falsity', L(coll)] )).length === 0
+	}
+)
+
+.run()

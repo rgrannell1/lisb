@@ -81,7 +81,9 @@ over_('val')
 
 
 
-
+console.log(
+	E( [':indices-of', [list, 1, 2, 3]] )
+)
 
 
 
@@ -649,14 +651,31 @@ over_('num', 'val')
 .describe('val is a subset of repeated val')
 .holdsWhen_(
 	function (num, val) {
-		return is.number(num)
+		return is.number(num) && num === num &&
+			Math.round(num) === num
 	},
 	function (num, val) {
 		return E([
-			'subset?'
-			[val],
-			[':repeat', num, val]
+			'subset?',
+			[L(val)],
+			[':repeat', num, L(val)]
 		])
+	}
+)
+
+.run()
+
+// :indices-of
+
+over_('coll')
+
+.describe('indices-of has the correct length.')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return unlist( E([':indices-of', coll]) ).length === coll.length
 	}
 )
 

@@ -13,18 +13,20 @@ const quasiquote = 'quasiquote'
 console.log( lEval([
 	begin,
 
-	[let,
-		':code', [
-		quasiquote,
-			[
-				begin,
-				[let, ':x', 0],
-				[let, ':y', 1],
-				[unquote,
-					['+', 1, 2]]
+	[let, ':as-prefix',
+		['mr', ':x',
+			[begin,
+				[let, [':e0', ':op', ':e1'], ':x'],
+				[quasiquote,
+					[
+						[unquote, ':op'],
+						[unquote, ':e0'],
+						[unquote, ':e1'] ]]
 			]] ],
 
-	[':code']
+
+	[':as-prefix', [10, '+', 10]]
+
 
 ]) )
 

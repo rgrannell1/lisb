@@ -641,3 +641,23 @@ over_('coll')
 )
 
 .run()
+
+// :repeat
+
+over_('num', 'val')
+
+.describe('val is a subset of repeated val')
+.holdsWhen_(
+	function (num, val) {
+		return is.number(num)
+	},
+	function (num, val) {
+		return E([
+			'subset?'
+			[val],
+			[':repeat', num, val]
+		])
+	}
+)
+
+.run()

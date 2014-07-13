@@ -588,3 +588,23 @@ over_('coll', 'num')
 )
 
 .run()
+
+// :reverse
+
+over_('coll')
+
+.describe("reversing a collection works.")
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return E([
+			':is?',
+			[':reverse', L(coll)],
+			L(coll.reverse())
+		])
+	}
+)
+
+.run()

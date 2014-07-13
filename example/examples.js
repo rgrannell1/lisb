@@ -12,6 +12,6 @@ const list   = 'list'
 
 lisbEval([
 	[let,
-		[':x', ':y', ':z'],
-		[list, 1, 2, 3]]
+		[list, ':x', ':y', ':z'],
+		[list, '1',  '2',  '3']]
 ])

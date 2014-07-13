@@ -62,9 +62,6 @@ const L = function (val) {
 
 
 
-
-
-
 // :is?
 
 over_('val')
@@ -81,7 +78,6 @@ over_('val')
 )
 
 .run()
-
 
 
 
@@ -526,7 +522,7 @@ over_('coll')
 
 
 
-// :which
+// :where
 
 over_('coll')
 
@@ -552,6 +548,42 @@ over_('coll')
 		]) )
 
 		return indices.length === 0
+	}
+)
+
+.run()
+
+// :max-by
+
+over_('coll', 'num')
+
+.describe('max-by a single number is the first element.')
+.holdsWhen_(
+	function (coll, num) {
+		return is.array(coll) && coll.length > 0 &&
+		is.number(num) && num === num
+	},
+	function (coll, num) {
+		return E([
+			':is?',
+			[':max-by', [':capture', num], L(coll)],
+			coll[0]
+		])
+	}
+)
+
+.describe('min-by a single number is the first element.')
+.holdsWhen_(
+	function (coll, num) {
+		return is.array(coll) && coll.length > 0 &&
+		is.number(num) && num === num
+	},
+	function (coll, num) {
+		return E([
+			':is?',
+			[':min-by', [':capture', num], L(coll)],
+			coll[0]
+		])
 	}
 )
 

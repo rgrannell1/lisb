@@ -467,3 +467,23 @@ over_('coll')
 )
 
 .run()
+
+// :flat-map
+
+over_('coll')
+
+.describe('flatmap identity is identity')
+.holdsWhen_(
+	function (coll) {
+		return is.array(coll)
+	},
+	function (coll) {
+		return E([
+			':is?'
+			[':flat-map', ':identity', L(coll)],
+			L(coll)
+		])
+	}
+)
+
+.run()

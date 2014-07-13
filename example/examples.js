@@ -9,6 +9,8 @@ const list       = 'list'
 const quote      = 'quote'
 const unquote    = 'unquote'
 const quasiquote = 'quasiquote'
+const eval       = 'eval'
+
 
 console.log( lEval([
 	begin,
@@ -26,9 +28,11 @@ console.log( lEval([
 			]] ],
 
 
-	[ ':eval', [':as-prefix',
-		[list, 10, '+', 10]] ]
+	[let,
+		':result', [eval,
+			[':as-prefix', [list, 10, '+', 10]] ]],
 
+	[':result']
 
 ]) )
 

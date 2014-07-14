@@ -31,9 +31,10 @@ console.log( lEval([
 
 	[let,
 		':result', [eval,
-			[':as-prefix', [list, 10, '+', 10]] ]],
+			[':as-prefix',
+				[list, 10, '+', 10]] ]],
 
-	[':result']
+	[':clog', ':result']
 
 ]) )
 

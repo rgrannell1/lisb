@@ -12,29 +12,5 @@ const quasiquote = 'quasiquote'
 const eval       = 'eval'
 
 
-console.log( lEval([
-	begin,
-
-	[let, ':as-prefix',
-		['mr', ':x',
-			[begin,
-
-				[let,
-					[list, ':e0', ':op', ':e1'], ':x'],
-
-				[quasiquote,
-					[
-						[unquote, ':op'],
-						[unquote, ':e0'],
-						[unquote, ':e1'] ]]
-			]] ],
-
-	[let,
-		':result', [eval,
-			[':as-prefix',
-				[list, 10, '+', 10]] ]],
-
-	[':clog', ':result']
-
-]) )
+console.log( lEval([]) )
 

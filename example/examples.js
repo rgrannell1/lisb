@@ -9,8 +9,3 @@ const list       = 'list'
 const quote      = 'quote'
 const unquote    = 'unquote'
 const quasiquote = 'quasiquote'
-const eval       = 'eval'
-
-
-console.log( lEval([]) )
-

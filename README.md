@@ -77,8 +77,4 @@ keyworks and strings, and a fairly complete collections library. Lisb also has u
 functions, with function call semantics that get rid of the extra parens curried functions
 require in JavaScript.
 
-Lisb uses applicative-order evalutation, and is not designed for lisp-style metaprogramming. That
-said, JavaScript's collection functions can be used to dynamically write Lisb programs due to their
-shared syntax.
-
 [1] Which, ironically, never resorts to using `eval`.

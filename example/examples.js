@@ -20,21 +20,21 @@ const value = lEval([
 	begin,
 
 	[let, ':console',
-		[':require', '../lib/lisb-console']],
+		[':require', '../lib/module-console']],
+
+	[let, ':path',
+		[':require', '../lib/module-path']],
+
+
+
+
+
 
 	['eval',
-		[':import', [list, 'info'], ':console']],
+		[':import', [list, 'log'], ':console']],
 
-	['->',
-		[list, 1, 2, 3, 4, 5],
-
-		[':map',
-			[fn, ':x', ['*', ':x', ':x']] ],
-		[':map',
-			[fn, ':x', ['+', ':x', ':x']] ]]
-
-
-
+	[ ':log',
+		[['@', 'join', ':path'], [list, '/home', 'ryan']] ]
 
 
 ], {
@@ -42,5 +42,3 @@ const value = lEval([
 	debug: false
 
 })
-
-console.log(value)

@@ -19,22 +19,16 @@ const quasiquote = 'quasiquote'
 const value = lEval([
 	begin,
 
-	[let, ':console',
-		[':require', '../lib/module-console']],
+	[let, ':docopt',
+		[':require', '../lib/module-docopt']],
 
-	[let, ':path',
-		[':require', '../lib/module-path']],
-
+	[':docopt']
 
 
 
 
 
-	['eval',
-		[':import', [list, 'log'], ':console']],
 
-	[ ':log',
-		[['@', 'join', ':path'], [list, '/home', 'ryan']] ]
 
 
 ], {

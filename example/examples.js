@@ -16,8 +16,23 @@ const quasiquote = 'quasiquote'
 
 
 
-lEval([':clog', 100], {
+lEval([
+	begin,
 
-	debug: true
+	[let, ':console',
+		[':require', '../lib/lisb-console']],
+
+	[':import', [list, 'info'], ':console']
+
+
+
+
+
+
+
+
+], {
+
+	debug: false
 
 })

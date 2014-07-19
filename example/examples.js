@@ -16,16 +16,23 @@ const quasiquote = 'quasiquote'
 
 
 
-lEval([
+const value = lEval([
 	begin,
 
 	[let, ':console',
 		[':require', '../lib/lisb-console']],
 
-	[':import', [list, 'info'], ':console']
+	['eval',
+		[':import', [list, 'info'], ':console']],
 
+	['->',
+		[list, 1, 2, 3, 4, 5],
 
-
+		[':map',
+			[fn, ':x', ['*', ':x', ':x']] ],
+		[':map',
+			[fn, ':x', ['+', ':x', ':x']] ]
+	]
 
 
 
@@ -36,3 +43,5 @@ lEval([
 	debug: false
 
 })
+
+console.log(value)

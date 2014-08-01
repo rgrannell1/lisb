@@ -1,22 +1,4 @@
-
-lEval = require('../lib/lisb-eval').lEval
-
-const let        = 'let'
-const cond       = 'cond'
-const fn         = 'fn'
-const mr         = 'mr'
-const begin      = 'begin'
-const list       = 'list'
-const quote      = 'quote'
-const unquote    = 'unquote'
-const quasiquote = 'quasiquote'
-
-
-
-
-
-
-const value = lEval([
+[
 	begin,
 
 	[let, ':docopt',
@@ -49,14 +31,4 @@ const value = lEval([
 	]] ]],
 
 	[':clog', ':args']
-
-
-
-
-
-
-], {
-
-	debug: true
-
-})
+]

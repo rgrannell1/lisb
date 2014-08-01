@@ -2,79 +2,56 @@
 LISB [![Build Status](https://travis-ci.org/rgrannell1/lisb.png?branch=master)](https://travis-ci.org/rgrannell1/lisb)
 ===============================
 
-Lisb (Lost in a Sea of Brackets) is a language embedded within JavaScript. Lisb is unlike most languages that target JS
-in that lisb code is made from ordinary JS data-structures. Lisb isn't meant to be a
-contender for Transpiled JS Language of The Year, but it will hopefully develop into an interesting
-toy language.
+Lisb is a lisp-like toy language embedded in node.js. Unlike transpiled languages like ClojureScript,
+Lisb code is valid JSON; it can be written alongside and used by JavaScript.
 
-Lisb programs are built from JS literals like arrays, strings, numbers and functions, which are
-then evaluated by Lisb's custom interpretor [1]. Most transpiled languages must transform non-JS
-source to JS before running; lisb is JS all the way down. One nice side-effect of
-Lisb-programs being first-class citizens of JS is that JS can be used to dynamically
-write Lisb, adding metaprogramming without the unconstrained horrors of `eval`.
+### Features
 
-### Technical Features
+#### Currying
 
-* All lisb functions are curried, and curried functions can be invoked without extra brackets. This
-makes partial application easy.
-
-* Lisb is lexically-scoped, with applicative-order evaluation.
-
-* Lisb implements expression quotation & quasi-quotation.
+Lisb functions are curried, but multiple arguments can be passed to them with none of the
+parentheses required by JS.
 
 ```js
-const prog0 =
-[
-	begin,
+[let, ':add',
+	[fn, ':x'. [fn, ':y', [
+		'+', ':x', ':y']] ]]
 
-	[let, ':coll0', [list, 1, 2, 3, 4, 5]],
+[[':add', 10], 2]
+[':add', 10, 2]
 
-	[let, ':coll1',
-		[ ':take', 2, [':reverse', ':coll0']] ],
+12
+```
+### Macros
 
-	[let, ':double',
-		['fn', ':x', [
-			[begin,
-				[':clog', ':x'],
-				['+', ':x', ':x']] ]] ],
+Lisb implements standard macro tools like `quote`, `quasiquote`, and `unquote`, as well
+as functions with unevaluated arguments.
 
-	[':double', 10]
-]
+#### Threading
 
-const prog1 =
-[
-	begin,
+Lisb includes a threading macro, which turns programs inside out and expresses them as a value
+passed through a chain of functions.
 
-	[let, ':inc', [
-		fn, ':x', ['+', ':x', 1] ]],
+```js
+['->',
 
-	[':map', ':inc', ['list', 1, 2, 3, 4]]
+	[':', 0, 100],
 
-]
+	[':map', [fn, ';x', [
+		'*', ':x', ':x'
+	]] ],
 
-const prog2 =
-[
-	begin,
-
-	[let,
-		[list, ':x', ':y', ':z'],
-		[list, 1,    2,    3]],
-
-	[':map',
-		[fn,
-			':x', ['*', ':x', ':x']],
-		[list, ':x', ':y', ':z'] ]
+	[':map', [fn, ';x', [
+		'+', ':x', ':x'
+	]] ]
 
 ]
-
-lEval(prog0)
-lEval(prog1)
-lEval(prog2)
 ```
 
-Clunkly syntax aside, the language is reasonably powerful; it has arrays, numbers, booleans,
-keyworks and strings, and a fairly complete collections library. Lisb also has unary lamda
-functions, with function call semantics that get rid of the extra parens curried functions
-require in JavaScript.
+#### Immutable
 
-[1] Which, ironically, never resorts to using `eval`.
+Lisb has standard and destructuring assignment. All lisb values are immutable.
+
+```js
+[rlet, [':x',  ':y', ':z'], [1, 2, 3]]
+```

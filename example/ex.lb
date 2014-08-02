@@ -1,6 +1,10 @@
 [
 	begin,
 
+
+	[let, ':path',
+		[':require', '../lib/module-path']],
+
 	['->',
 		[':', 0, 10],
 		[':map', [fn, ':x', [

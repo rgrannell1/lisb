@@ -1,6 +1,6 @@
+
 [
 	begin,
-
 
 	[let, ':docopt',
 		[':require', '../lib/module-docopt']],
@@ -9,9 +9,17 @@
 		[':docopt', [':from-lines',
 			['list',
 				"Usage:",
-				"    hello <name>"
-	]] ]],
+				"    add <e1> <e2>"]] ]],
 
-	[':clog',
-		['@', '<name>', ':args']]
+	[let, ':e1',
+		['@', '<e1>', ':args']],
+
+	[let, ':e2',
+		['@', '<e2>', ':args']],
+
+	[let, ':num', ['*',
+		[':parse-int', ':e1'],
+		[':parse-int', ':e2']] ],
+
+	[':clog', ':num']
 ]

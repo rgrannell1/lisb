@@ -2,13 +2,16 @@
 	begin,
 
 
-	[let, ':path',
-		[':require', '../lib/module-path']],
+	[let, ':docopt',
+		[':require', '../lib/module-docopt']],
 
-	['->',
+	[let, ':args',
+		[':docopt', [':from-lines',
+			['list',
+				"Usage:",
+				"    hello <name>"
+	]] ]],
 
-		[':', 0, 10],
-		[':map', [fn, ':x', [
-			'*', ':x', ':x']] ]]
-
+	[':clog',
+		['@', '<name>', ':args']]
 ]

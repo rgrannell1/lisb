@@ -5,6 +5,10 @@ LISB [![Build Status](https://travis-ci.org/rgrannell1/lisb.png?branch=master)](
 Lisb is a lisp-like toy language embedded in node.js. Unlike transpiled languages like ClojureScript,
 Lisb code is valid JSON; it can be written alongside and used by JavaScript.
 
+```bash
+lisb my-file.lb >> my-file.js && node my-file.js
+```
+
 ### Features
 
 #### Currying

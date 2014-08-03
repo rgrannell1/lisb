@@ -17,5 +17,5 @@
 		"test":
 			"node tests/test-all.js"
 	},
-	"main": "lisb.js"
+	"main": "lisb-eval.js"
 }

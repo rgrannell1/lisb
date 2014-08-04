@@ -5,8 +5,4 @@
 	[let, ':docopt',
 		[':require', '../lib/module-docopt']],
 
-	[':clog',
-		[':is?', 10, 10]
-
-	]
 ]

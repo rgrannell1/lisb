@@ -5,4 +5,6 @@
 	[let, ':docopt',
 		[':require', '../lib/module-docopt']],
 
+	['*', 10, 10]
+
 ]

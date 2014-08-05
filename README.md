@@ -6,7 +6,9 @@ Lisb is a lisp-like toy language embedded in node.js. Unlike transpiled language
 Lisb code is valid JSON; it can be written alongside and used by JavaScript.
 
 ```bash
-lisb my-file.lb >> my-file.js && node my-file.js
+lisb example/ex.lb
+lisb example/ex.lb -o | node
+lisb example/ex.lb -o > ~/test.js && node ~/test.js
 ```
 
 ### Features
@@ -46,8 +48,7 @@ passed through a chain of functions.
 	]] ],
 
 	[':map', [fn, ';x', [
-		'+', ':x', ':x'
-	]] ]
+		'+', ':x', ':x']] ]
 
 ]
 ```

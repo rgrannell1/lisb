@@ -5,6 +5,15 @@
 	[let, ':docopt',
 		[':require', '../lib/module-docopt']],
 
-	['*', 10, 10]
+	[let, ':args',
+		[':docopt', [':from-lines', [list,
+
+			"Usage:",
+			"    add <e1> <e2>"
+
+		]] ]],
+
+	[':clog',
+		['@', '<e1>', ':args']]
 
 ]

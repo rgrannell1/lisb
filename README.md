@@ -11,6 +11,41 @@ lisb example/ex.lb -o | node
 lisb example/ex.lb -o > ~/test.js && node ~/test.js
 ```
 
+### Example
+
+```js
+[
+	begin,
+
+	[let, ':docopt',
+		[':require', '../lib/module-docopt']],
+
+	[let, ':args',
+		[':docopt', [':from-lines', [list,
+
+			"Usage:",
+			"    add <e1> <e2>",
+			"    add (-h | --help | --version)",
+			"",
+			"Description:",
+			"This is a dumb command-line app for adding numbers.",
+			"",
+			"Arguments:",
+			"    <e1>  The first number to add.",
+			"    <e2>  The second number to add."
+
+		]] ]],
+
+	[let, ':e1',
+		['@', '<e1>', ':args']],
+
+	[let, ':e2',
+		['@', '<e2>', ':args']],
+
+	['+', ':e1', ':e2']
+]
+```
+
 ### Features
 
 #### Currying

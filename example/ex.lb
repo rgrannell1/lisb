@@ -9,11 +9,23 @@
 		[':docopt', [':from-lines', [list,
 
 			"Usage:",
-			"    add <e1> <e2>"
+			"    add <e1> <e2>",
+			"    add (-h | --help | --version)",
+			"",
+			"Description:",
+			"This is a dumb command-line app for adding numbers.",
+			"",
+			"Arguments:",
+			"    <e1>  The first number to add.",
+			"    <e2>  The second number to add."
 
 		]] ]],
 
-	[':clog',
-		['@', '<e1>', ':args']]
+	[let, ':e1',
+		['@', '<e1>', ':args']],
 
+	[let, ':e2',
+		['@', '<e2>', ':args']],
+
+	['+', ':e1', ':e2']
 ]
